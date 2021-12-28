@@ -28,30 +28,32 @@
                     </div>
                     <span>Background Colour</span>
                 </div> -->
-                <button id="rainbow-btn">Rainbow Color Brush</button>
                 <button id="color-fill">Fast Color Fill</button>
-                <button id="color-grabber">Colour Grabber</button>
-
+                <button id="color-picker">Color Picker</button>
+                
+                <button id="rainbow-btn">Rainbow Color Brush</button>
                 <button id="lighten-btn">Dodge Tool</button>
                 <button id="shader-btn">Burn Tool</button>
 
                 <button id="eraser-btn">Eraser</button>
         
                 <div class="slider-box">
-                    <input type="range" value="24" min="1" max="60" id="range-slider" onmousemove="rangeSliderValue(this.value)"
-                        onChange="rangeSlider(this.value)">
+                    <input type="range" value="24" min="16" max="75" id="range-slider" />
                     <div id="progress-bar"></div>
                 </div>
         
-                <p class="grid-size">Grid size: <span id="range-value">24</span> x <span id="range-value">24</span></p>
+                <p class="grid-size">Grid size: 24 x 24</p>
         
                 <button id="grid-btn" class="btn-on">Toggle Grid Lines</button>
                 <button id="clear-grid">Clear</button>
         
             </div>
         </div>
+        <footer class="footer">
+            <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">
+                Copyright © 2022 LuongBaoThai</a>
+        </footer>
     </div>
-    
     <script src="app.js"></script>
 </body>
 </html>
