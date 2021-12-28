@@ -1,15 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&family=Press+Start+2P&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --grid-cols: 1;
   --grid-rows: 1;
+  --main-color: #22344c;
 }
 
-#container {
+.canvas {
+  background: rgb(236, 243, 250);
+  background: linear-gradient(
+    101deg,
+    rgba(236, 243, 250, 1) 0%,
+    rgba(227, 238, 246, 1) 100%
+  );
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+  font-family: "Press Start 2P", cursive;
+  color: #ee802c;
+  /* background: -webkit-linear-gradient(100deg, #f2aa74, #ee802c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 1900px;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: #ececec; */
+}
+
+/* Grid sytles */
+.grid-wrapper {
+  width: 880px;
+  height: 880px;
+  background-color: #e5eef7;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 20px 20px 42px -5px #adadad, -15px -20px 30px -5px #ffffff;
+}
+
+#grid-container {
   width: 800px;
   height: 800px;
   margin: auto;
-  border: 5px solid grey;
+  border: 5px solid #22344c;
   padding: 2px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 10px 50px;
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 10px 50px; */
   /* background-color: gray; */
   display: grid;
   /* grid-gap: 1em; */
@@ -20,6 +72,127 @@
 .grid-item {
   /* padding: 1em;
   text-align: center; */
-  /* border: 1px solid #ddd; */
+  border: 1px solid rgba(99, 99, 99, 0.5);
   aspect-ratio: 1;
+  user-select: none;
+  background-color: white;
+}
+
+/* Control Styles */
+.controls {
+  width: 350px;
+  background-color: #e5eef7;
+  border-radius: 25px;
+  padding: 40px;
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+  box-shadow: 20px 20px 42px -5px #adadad, -20px -20px 42px -5px #ffffff;
+}
+
+input[type="color"] {
+  display: block;
+  outline: none;
+  border: none;
+  /* border: 1px solid rgb(62, 166, 255); */
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 2px;
+  width: 200%;
+  /* padding: 4px 8px; */
+  height: 200%;
+  transform: translateX(-10px) translateY(-10px);
+}
+.color-box {
+  height: 36px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid var(--main-color);
+  width: 25%;
+  margin-bottom: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  /* transform: translateY(-10px); */
+}
+
+.color-card {
+  font-family: Asap, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--main-color);
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+.color-card span {
+  margin-left: 9px;
+  position: absolute;
+  top: 10px;
+  left: 88px;
+}
+
+button {
+  display: block;
+  color: var(--main-color);
+  font-weight: 500;
+  font-family: Asap, "Helvetica Neue", sans-serif;
+  background-color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  outline: none;
+  border: 2px solid var(--main-color);
+  border-radius: 25px;
+  padding: 9px 15px;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: 1s;
+}
+/* button:hover {
+  -webkit-box-shadow: 10px 9px 34px -6px #bebebe, -9px -9px 34px -6px #ffffff;
+  box-shadow: 10px 9px 34px -6px #969696, -9px -9px 10px -6px #ffffff;
+} */
+
+#color-grabber {
+  margin-bottom: 34px;
+}
+
+#shader-btn {
+  margin-bottom: 31px;
+}
+
+/* Slider styles */
+.slider-box {
+  margin-bottom: 10px;
+}
+input[type="range"] {
+  width: 100%;
+  height: 2px;
+  background: var(--main-color);
+  appearance: none;
+  outline: none;
+  border-radius: 2px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--main-color);
+}
+.grid-size {
+  font-family: Asap, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--main-color);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#grid-btn {
+  margin-bottom: 30px;
+}
+.btn-on {
+  background-color: var(--main-color);
+  color: white;
+}
+
+#clear-grid {
+  margin-bottom: 0px;
 }

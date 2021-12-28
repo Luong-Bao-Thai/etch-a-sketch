@@ -5,13 +5,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-a-sketch</title>
+    <title>8bit ARTIST</title>
 </head>
 <body>
-    <h1 class="header">Etch-a-sketch</h1>
+    <div class="canvas">
+        <h1 class="header">8bit ARTIST</h1>
+        <div class="main">
+            <div class="grid-wrapper">
+                <div id="grid-container" class="toggle-grid" draggable="false"></div>
+            </div>
+            <div class="controls">
+        
+                <div class="color-card">
+                    <div class="color-box">
+                        <input type="color" id="color-select">
+                    </div>
+                    <span>Brush Colour</span>
+                </div>
+                <!-- <div class="color-card cc2">
+                    <div class="color-box">
+                        <input type="color" id="bg-color-select" value="#ffffff">
+                    </div>
+                    <span>Background Colour</span>
+                </div> -->
+                <button id="rainbow-btn">Rainbow Color Brush</button>
+                <button id="color-fill">Fast Color Fill</button>
+                <button id="color-grabber">Colour Grabber</button>
 
-    <div id="container"></div>
+                <button id="lighten-btn">Dodge Tool</button>
+                <button id="shader-btn">Burn Tool</button>
 
+                <button id="eraser-btn">Eraser</button>
+        
+                <div class="slider-box">
+                    <input type="range" value="24" min="1" max="60" id="range-slider" onmousemove="rangeSliderValue(this.value)"
+                        onChange="rangeSlider(this.value)">
+                    <div id="progress-bar"></div>
+                </div>
+        
+                <p class="grid-size">Grid size: <span id="range-value">24</span> x <span id="range-value">24</span></p>
+        
+                <button id="grid-btn" class="btn-on">Toggle Grid Lines</button>
+                <button id="clear-grid">Clear</button>
+        
+            </div>
+        </div>
+    </div>
+    
     <script src="app.js"></script>
 </body>
 </html>
