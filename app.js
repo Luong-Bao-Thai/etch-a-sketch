@@ -11,6 +11,7 @@ const gridSize_div = document.querySelector('.grid-size');
 
 rangeSlider_input.onmousemove = (e) => updateSizeValue(e.target.value);
 rangeSlider_input.onchange = (e) => changeSize(e.target.value);
+
 function changeSize(value) {
     setCurrentSize(value);
     updateSizeValue(value);
@@ -39,6 +40,7 @@ function createGrid(rows, cols) {
         cell.setAttribute('draggable', 'false');
         cell.style.backgroundColor = 'transperent';
         cell.style.borderRadius = '5%';
+        cell.addEventListener("mouseover", () => cell.style.backgroundColor = 'black');
         cell.addEventListener("touch", () => cell.style.backgroundColor = 'black');
     };
 };
