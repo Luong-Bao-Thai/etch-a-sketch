@@ -8,3 +8,5 @@ Create your own pixel art.
 
 
 [Live App](https://luong-bao-thai.github.io/etch-a-sketch/)
+
+![alt text](https://user-images.githubusercontent.com/92055906/147624922-e80de83e-72a4-4206-9ad3-2c2c45ebfbb2.png)
