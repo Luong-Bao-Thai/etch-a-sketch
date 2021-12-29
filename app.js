@@ -24,10 +24,10 @@ function updateSizeValue(value) {
   gridSize_div.innerHTML = `Grid size: ${value} x ${value}`;
 };
 function reloadGrid() {
-  clearGrid()
+  resetGrid()
   createGrid(currentSize, currentSize)
 };
-function clearGrid() {
+function resetGrid() {
   gridContainer_div.innerHTML = ''
 };
 
@@ -40,14 +40,16 @@ function createGrid(rows, cols) {
         cell.setAttribute('draggable', 'false');
         cell.style.backgroundColor = 'transperent';
         cell.style.borderRadius = '5%';
-        cell.addEventListener("mouseover", () => cell.style.backgroundColor = 'black');
-        cell.addEventListener("touch", () => cell.style.backgroundColor = 'black');
+        cell.addEventListener("mouseover", () => cell.style.backgroundColor = brushColor);
+        cell.addEventListener("touch", () => cell.style.backgroundColor = brushColor);
     };
 };
 
 createGrid(currentSize, currentSize);
 
-gridItems = document.querySelectorAll('.grid-item');
+
+
+let gridItems = document.querySelectorAll('.grid-item');
 
 let fill = false; //Default unToggle color fill btn
 const colorFill_btn = document.querySelector('#color-fill');
@@ -213,3 +215,55 @@ function randomColor() {
   // this returns fewer colors but they are all nice and bright
   return `hsl(${Math.random() * 360}, 75%, 50%)`;
 }
+
+function fadeGrid (item) {
+  if (item.style.backgroundColor == '' || item.style.backgroundColor == 'transperent') {
+    item.style.backgroundColor == 'white';
+  }
+  let fadeSpeed = Math.random() * 10;
+  if (fadeSpeed > 8) {
+    item.classList.add('clear-fade');
+  } else if (fadeSpeed > 6) {
+    item.classList.add('clear-fade-2');
+  } else if (fadeSpeed > 4) {
+    item.classList.add('clear-fade-3');
+  } else if (fadeSpeed > 2) {
+    item.classList.add('clear-fade-4');
+  } else {
+    item.classList.add('clear-fade-5');
+  }
+}
+
+let bgColor = '#ffffff';
+gridContainer_div.style.backgroundColor = bgColor;
+let root = document.documentElement;
+const clear_btn = document.querySelector('#clear-grid');
+function clearGrid() {
+  root.style.setProperty('--bg-color', bgColor);
+  gridItems = document.querySelectorAll('.grid-item');
+  for (let i = 0; i < gridItems.length; i++) {
+    fadeGrid(gridItems[i]);
+  }
+  setTimeout(function () {
+    for (let i = 0; i < gridItems.length; i++) {
+      gridItems[i].style.backgroundColor = '';
+      gridItems[i].removeAttribute('data-inked');
+      gridItems[i].removeAttribute('data-shade');
+      gridItems[i].classList.remove('clear-fade');
+      gridItems[i].classList.remove('clear-fade-2');
+      gridItems[i].classList.remove('clear-fade-3');
+      gridItems[i].classList.remove('clear-fade-4');
+      gridItems[i].classList.remove('clear-fade-5');
+    }
+  }, 1500);
+  gridContainer_div.style.backgroundColor = bgColor;
+
+  // turn off the button after a very short delay
+  setTimeout(function () {
+    clear_btn.classList.remove('btn-on');
+  }, 1400);
+}
+clear_btn.addEventListener('click', clearGrid);
+
+
+
